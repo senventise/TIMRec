@@ -2,11 +2,11 @@ import subprocess as sp
 import json
 import config
 import os
+import sys
 import time
 
 def replace(f):
-    source = "/data/data/com.termux/files/home/TIMRec/amr"
-    a = os.listdir(source)
+    a = os.listdir(f"{sys.path[0]}/amr")
     cmd = ["termux-dialog"]
     cmd.append(config.dialog)
     cmd.append("-t")
@@ -20,8 +20,7 @@ def replace(f):
     out = popen.communicate()
     j = json.loads(out[0])
     t = j["text"]
-    os.system(f"cp {source}/{t} {f}")
-    #print(f + ">>>" + j["text"])
+    os.system(f"cp {sys.path[0]}/amr/{t} {f}")
 
 LOCK = False
 
@@ -50,11 +49,12 @@ while True:
         for i in diff:
             s = s + i + ","
         cmd.append(s)
-        print(cmd)
+        print(f"[{time.time()}] : {cmd}")
         popen = sp.Popen(cmd,stdout=sp.PIPE)
         out = popen.communicate()
         j = json.loads(out[0])
-        replace(j["text"])
+        if j["code"] == -1:
+            replace(j["text"])
         LOCK = False
         diff = []
     f1 = f2
