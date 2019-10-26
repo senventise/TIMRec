@@ -14,7 +14,7 @@ def replace(f):
     cmd.append("-v")
     s = ""
     for i in a:
-        if i[-4:] != ".amr":
+        if i[-4:] == ".amr":
             s = s + i + ","
     cmd.append(s)
     popen = sp.Popen(cmd,stdout=sp.PIPE)
