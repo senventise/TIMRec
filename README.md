@@ -4,7 +4,7 @@
 
 为 TIM 打造，原理上同样适用于 QQ。
 
-详情请查看[我的Blog]()
+详情请查看[我的Blog](https://www.senventise.com/2019/10/26/TIM%E8%AF%AD%E9%9F%B3%E6%9B%BF%E6%8D%A2/)
 
 ## Install
 
