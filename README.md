@@ -20,7 +20,11 @@ cd TIMRec
 
 3.配置
 
-`config.py`为配置文件
+新建`config.py`
+```python
+dialog = "radio" # radio/sheet
+path = ""
+```
 
 `dialog`为dialog样式，`path`为 TIM 的录音存放目录，通常为`/sdcard/tencent/Tim/{你的QQ号}/ptt`
 
