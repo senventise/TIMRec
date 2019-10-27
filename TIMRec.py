@@ -54,7 +54,7 @@ while True:
         popen = sp.Popen(cmd,stdout=sp.PIPE)
         out = popen.communicate()
         j = json.loads(out[0])
-        if j["code"] == -1:
+        if j["code"] != -2:
             replace(j["text"])
         LOCK = False
         diff = []
